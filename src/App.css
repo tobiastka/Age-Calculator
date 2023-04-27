@@ -1,42 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,900&display=swap');
+
+body {
+  background-color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  min-height: 100vh;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app {
+  background-color: #fff;
+  border-radius: 10px 10px 200px 10px;
+  padding: 3rem;
+  height: 700px;
+  width: 800px;
+  margin: auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ac-app-body {
+  display: flex;
+  flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.ac-inputs-body {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 0.2rem solid #e0e0e0;
+  position: relative;
 }
 
-.card {
-  padding: 2em;
+.ac-input-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(50%);
+  background-color: #e0e0e0;
+  border-radius: 100%;
+  cursor: pointer;
 }
 
-.read-the-docs {
-  color: #888;
+.ac-input {
+  display: flex;
+  flex-direction: column;
+  max-width: 10rem;
+  gap: 1rem;
+}
+
+.ac-input input {
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 0.2rem solid #e0e0e0;
+  transition: all 200ms;
+  color: #4c4c4c;
+
+}
+
+.ac-input input:hover {
+  border: 0.2rem solid #7e70ab;
+}
+
+.ac-input label {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: #4c4c4c;
+  font-weight: bold;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input {
+  -moz-appearance: textfield;
+}
+
+.ac-results-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.ac-result-value {
+  color: #824efb;
+  font-size: 6rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.ac-result-label {
+  color: #151515;
+  font-size: 6rem;
+  font-weight: 900;
+  font-style: italic;
 }
