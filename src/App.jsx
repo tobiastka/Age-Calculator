@@ -1,34 +1,49 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+function App () {
+  // const THIS_DATE = new Date()
+
+  const [day, setDay] = useState('')
+
+  function handlerClick () {
+
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='app'>
+      <div className='ac-app-body'>
+        <div className='ac-inputs-body'>
+          <div className='ac-input'>
+            <label>day</label>
+            <input type='number' onChange={(e) => { setDay(e.target.value) }} value={day} />
+          </div>
+          <div className='ac-input'>
+            <label>month</label>
+            <input type='number' />
+          </div>
+          <div className='ac-input'>
+            <label>year</label>
+            <input type='number' />
+          </div>
+          <img onClick={handlerClick} className='ac-input-button' src='./arrow.png' alt='' />
+        </div>
+        <div className='ac-results-body'>
+          <div className='ac-result'>
+            <span className='ac-result-value'>--</span>
+            <label className='ac-result-label'>years</label>
+          </div>
+          <div className='ac-result'>
+            <span className='ac-result-value'>--</span>
+            <label className='ac-result-label'>months</label>
+          </div>
+          <div className='ac-result'>
+            <span className='ac-result-value'>--</span>
+            <label className='ac-result-label'>days</label>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
