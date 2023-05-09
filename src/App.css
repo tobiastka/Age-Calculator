@@ -43,12 +43,14 @@ body {
   background-color: #e0e0e0;
   border-radius: 100%;
   cursor: pointer;
+  height: 5rem;
 }
 
 .ac-input {
   display: flex;
   flex-direction: column;
-  max-width: 11rem;
+  width: 11rem;
+  max-width: 30%;
   gap: 0.5rem;
 }
 
@@ -88,6 +90,11 @@ input {
   flex-direction: column;
 }
 
+.ac-result {
+  display: flex;
+  gap: 0.3rem;
+}
+
 .ac-result-value {
   color: #824efb;
   font-size: 6rem;
@@ -110,4 +117,43 @@ input {
 .error-color {
   border-color: rgb(240, 93, 93) !important;
   color: rgb(240, 93, 93) !important;
+}
+
+@media screen and (max-width: 850px) {
+  .app {
+    width: 90%;
+    height: 500px;
+    padding: 1rem;
+    border-radius: 10px 10px 100px 10px;
+  }
+
+  .ac-inputs-body {
+    gap: 0.2rem;
+    justify-content: space-between;
+  }
+
+  .ac-input {
+    text-align: center;
+  }
+
+  .ac-input-button {
+    height: 3rem;
+  }
+
+  .error-message {
+    font-size: 0.8rem;
+  }
+
+  .ac-input input {
+    font-size: 1em;
+  }
+
+  .ac-result-label,
+  .ac-result-value {
+    font-size: 3rem;
+  }
+
+  .ac-results-body {
+    margin-top: 50px;
+  }
 }

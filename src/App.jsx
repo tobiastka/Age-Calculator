@@ -23,7 +23,8 @@ function App () {
     EMPTY_ERROR: 'This field is required',
     VALID_DAY: 'Must be a valid day',
     VALID_MONTH: 'Must be a valid month',
-    VALID_YEAR: 'Must be a valid year'
+    VALID_YEAR: 'Must be a valid year',
+    VALID_FULL_DATE: 'Must be a past date'
 
   })
 
@@ -32,6 +33,7 @@ function App () {
   const month = useInput({ type: 'number', name: 'day' })
   const year = useInput({ type: 'number', name: 'day' })
   const [result, setResult] = useState({ years: null, months: null, days: null })
+  const [errorDate, setErrorDate] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -61,6 +63,11 @@ function App () {
     if (!day.error && !month.error && !year.error) {
       const timeDiffms = THIS_DATE - new Date(year.input, month.input - 1, day.input)
       const timeDiffSince1970 = new Date(timeDiffms)
+      if (timeDiffms < 0) {
+        setErrorDate(ERROR_TYPES.VALID_FULL_DATE)
+        return
+      }
+      setErrorDate('')
       const yearsDiff = timeDiffSince1970.getFullYear() - 1970
       const monthsDiff = timeDiffSince1970.getMonth()
       const daysDiff = timeDiffSince1970.getDate()
@@ -105,8 +112,10 @@ function App () {
             />
             {year.error && <p className='error-message'>{year.error}</p>}
           </div>
+
           <input type='image' className='ac-input-button' src='./arrow.png' alt='' />
         </form>
+        {errorDate && <p className='error-message'>{errorDate}</p>}
         <div className='ac-results-body'>
           <div className='ac-result'>
             <span className='ac-result-value'>{result.years === null ? '--' : result.years}</span>
